@@ -1,24 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Navbar, Container, Nav } from 'react-bootstrap'
+import { Routes, Route, Link } from 'react-router-dom';
+
 import './App.css';
+import GoodsDetail from './Components/GoodsDetail.js'
+import Main from './Components/Main.js'
+import CompayList from './Components/CompanyList';
+import CompanyAdd from './Components/CompanyAdd';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar bg="primary" variant="dark">
+        <Container>
+        <Navbar.Brand as={ Link } to="/">귤딸쿠광</Navbar.Brand>
+        <Nav className="me-auto">
+          <Nav.Link as={ Link } to="/">Home</Nav.Link>
+          <Nav.Link as={ Link } to="/helper">고객센터</Nav.Link>
+          <Nav.Link as={ Link } to="/companyList">업체 목록</Nav.Link>
+          <Nav.Link as={ Link } to="/companyAdd">업체 등록</Nav.Link>
+        </Nav>
+        </Container>
+      </Navbar>
+
+      <h4>귤딸쿠광</h4>
+
+      <Routes>
+        <Route path="/" element={<Main/>}/>
+        <Route path="/detail" element={<GoodsDetail/>}/>
+        <Route path="/companyList" element={<CompayList/>}/>
+        <Route path="/companyAdd" element={<CompanyAdd/>}/>
+      </Routes>
     </div>
   );
 }
