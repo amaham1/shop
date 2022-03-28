@@ -18,13 +18,14 @@ function CompanyAdd() {
       });
     };
 
-    const post = (e) => {
+    const post = () => {
       axios.post("/post", form)
     .then( (res)=>{
-        alert(res.data);
+      console.log(res)
+      alert(res.data);
     })
     .catch( (res)=> {
-        alert("실패욤");
+        alert(res);
     })
     }
 
@@ -41,7 +42,7 @@ function CompanyAdd() {
               일할 시간 : <input name="workTime" onChange={onChange}/>
             </label>
             <label>
-              급여 :  <input name="pay" onChange={onChange}/>
+              급여 :  <input name="pay" placeholder="급여" onChange={onChange}/>
             </label>
            
             <button onClick={post}>

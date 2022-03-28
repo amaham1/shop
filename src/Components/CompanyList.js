@@ -9,6 +9,7 @@ function CompayList() {
     useEffect( ()=>{
         axios.get("/get")
         .then( (res)=>{
+            console.log(res)
             setComList(res.data)
         })
         .catch()
