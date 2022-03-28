@@ -24,13 +24,11 @@ function GoodsDetail() {
 
 function Post(msg) {
     console.log(msg);
-    axios.post("/post",{ data : {
+    axios.post("/post",{ 
         companyName : "귤농장!", 
         toDo : "귤따기", 
         workTime : "8시간", 
         pay : "1000"
-    }
-       
     })
     .then( (res)=>{
         alert(res.data);

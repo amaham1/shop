@@ -1,6 +1,7 @@
 import { Table } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 function CompayList() {
     const [comList, setComList] = useState([]);
@@ -35,13 +36,17 @@ function CompayList() {
 }
 
 function Tbody(params) {
+    const history = useNavigate();
     return(
         
         params.comList.map( (e,i)=>{
             return(
-                <tr key={i}>
-                    <td>{i+1}</td>
-                    <td>{e.Name}</td>
+                <tr key={i} onClick={ ()=>{ history("/") }}>
+                    <td>{e.companyNameNum}</td>
+                    <td>{e.companyName}</td>
+                    <td>{e.toDo}</td>
+                    <td>{e.workTime}</td>
+                    <td>{e.pay}</td>
                 </tr>
             )
         })
