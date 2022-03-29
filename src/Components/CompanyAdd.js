@@ -1,8 +1,22 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
+import { Form, Button } from 'react-bootstrap'
 import axios from 'axios'
 
 function CompanyAdd() { 
-    const [arr, setArr] = useState();
+
+  const [cityArr, setCityArr] = useState([]);
+    useEffect(() => {
+      const fetchUsers = async () => {
+        
+          const response = await axios.get( "/comCode/city");
+          setCityArr(response.data);
+        
+      };
+  
+      fetchUsers();
+    }, []);
+
+    
     const [form, setForm] = useState( {
       companyName : "", 
       toDo : "", 
@@ -20,14 +34,15 @@ function CompanyAdd() {
 
     const post = () => {
       axios.post("/post", form)
-    .then( (res)=>{
-      console.log(res)
-      alert(res.data);
-    })
-    .catch( (res)=> {
-        alert(res);
-    })
+      .then( (res)=>{
+        console.log(res)
+        alert(res.data);
+      })
+      .catch( (res)=> {
+          alert(res);
+      })
     }
+
 
     return (
         <div>
@@ -39,7 +54,7 @@ function CompanyAdd() {
               할 일 : <input name="toDo" onChange={onChange}/>
             </label>
             <label>
-              일할 시간 : <input name="workTime" onChange={onChange}/>
+              일할 시간 : <input name="workTime" placeholder="일할 시간" onChange={onChange}/>
             </label>
             <label>
               급여 :  <input name="pay" placeholder="급여" onChange={onChange}/>
@@ -48,7 +63,38 @@ function CompanyAdd() {
             <button onClick={post}>
               등록하기
             </button>
-        </form>
+          </form>
+          <Form>
+            <Form.Group className="col-md-auto" controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="email" placeholder="Enter email" />
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" placeholder="Password" />
+            </Form.Group>
+
+            <div>
+              <Form.Select name="selectCity" size="lg">
+                <option>시 선택</option>
+                {
+                  cityArr.map( (e,i)=>{
+                    return(
+                      e.code_type === 'city' ? 
+                      <option value={i}>
+                        {e.code_name}
+                      </option>
+                      : e.code_name
+                    )
+                  })
+                }
+              </Form.Select>
+              <br />
+            </div>
+
+            
+            <Button variant="primary">
+              Submit
+            </Button>
+          </Form>
         </div>
     )
 }
