@@ -21,7 +21,8 @@ function CompayList() {
                 <thead>
                     <tr>
                     <th></th>
-                    <th>업체명</th>
+                    <th>농장 이름</th>
+                    <th>농장 위치</th>
                     <th>할 일</th>
                     <th>일할 시간</th>
                     <th>급여</th>
@@ -43,9 +44,10 @@ function Tbody(params) {
         
         params.comList.map( (e,i)=>{
             return(
-                <tr key={i} onClick={ ()=>{ history("/") }}>
+                <tr key={i} onClick={ ()=>{ history(`/detail/${e.companyNameNum}`) }}>
                     <td>{e.companyNameNum}</td>
                     <td>{e.companyName}</td>
+                    <td>{e.companyAddress}</td>
                     <td>{e.toDo}</td>
                     <td>{e.workTime}</td>
                     <td>{e.pay}</td>

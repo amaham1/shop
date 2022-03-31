@@ -3,9 +3,9 @@ import { Navbar, Container, Nav } from 'react-bootstrap'
 import { Routes, Route, Link } from 'react-router-dom';
 
 import './App.css';
-import GoodsDetail from './Components/GoodsDetail.js'
+import CompanyDetail from './Components/CompanyDetail.js'
 import Main from './Components/Main.js'
-import CompayList from './Components/CompanyList';
+import CompanyList from './Components/CompanyList';
 import CompanyAdd from './Components/CompanyAdd';
 
 function App() {
@@ -16,9 +16,9 @@ function App() {
         <Navbar.Brand as={ Link } to="/">귤딸쿠광</Navbar.Brand>
         <Nav className="me-auto">
           <Nav.Link as={ Link } to="/">Home</Nav.Link>
-          <Nav.Link as={ Link } to="/helper">고객센터</Nav.Link>
           <Nav.Link as={ Link } to="/companyList">업체 목록</Nav.Link>
           <Nav.Link as={ Link } to="/companyAdd">업체 등록</Nav.Link>
+          <Nav.Link as={ Link } to="/helper">고객센터</Nav.Link>
         </Nav>
         </Container>
       </Navbar>
@@ -27,8 +27,8 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Main/>}/>
-        <Route path="/detail" element={<GoodsDetail/>}/>
-        <Route path="/companyList" element={<CompayList/>}/>
+        <Route path="/detail/:companyNameNum_id" element={<CompanyDetail/>}/>
+        <Route path="/companyList" element={<CompanyList/>}/>
         <Route path="/companyAdd" element={<CompanyAdd/>}/>
       </Routes>
     </div>
