@@ -17,7 +17,7 @@ function CompayList() {
 
     return (
         <div>
-            <Table striped bordered hover size="sm">
+            <Table striped bordered hover size="md">
                 <thead>
                     <tr>
                     <th></th>
@@ -25,6 +25,7 @@ function CompayList() {
                     <th>할 일</th>
                     <th>일할 시간</th>
                     <th>급여</th>
+                    <th>농장 소개</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,6 +49,7 @@ function Tbody(params) {
                     <td>{e.toDo}</td>
                     <td>{e.workTime}</td>
                     <td>{e.pay}</td>
+                    <td>{e.companyIntro}</td>
                 </tr>
             )
         })
