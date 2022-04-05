@@ -1,0 +1,2 @@
+# shop
+use Tailwind
