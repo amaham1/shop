@@ -10,7 +10,7 @@ import Home from './Componenets/Home'
 function App() {
   return (
     <div className="App">
-      <Navv/>
+      <Nav/>
       <hr/>
 
       <div className=" mx-32 mt-4 border-2 border-pink-700">
@@ -27,7 +27,7 @@ function App() {
   )
 }
 
-function Navv() {
+function Nav() {
   return (
     <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
         <div className="container flex flex-wrap justify-between items-center mx-auto">
