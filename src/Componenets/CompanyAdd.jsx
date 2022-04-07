@@ -3,15 +3,7 @@ import axios from 'axios';
 
 function CompayAdd() {
 
-    const [form, setForm] = useState({
-        companyName : ""
-        , toDo : ""
-        , companyAddress : ""
-        , workTime : ""
-        , pay : ""
-        , companyPhone : ""
-        , companyIntro : ""
-    })
+    const [form, setForm] = useState({})
     const inputChange = (e) => {
         const { name, value} = e.target;
         setForm({
